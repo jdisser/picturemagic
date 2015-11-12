@@ -20,10 +20,17 @@
 
 <h2>Pictures</h2>
 
-<% @album.pictures.each do |pic| %>
-  <p>Title</p>
-  <%= pic.title %>
-  <%= pic.picurl %>
+<% @album.pictures.each do |picture| %>
+    <div class="">
+      <p><%= picture.title %></p>
+      <p><%= picture.caption %></p>
+      <p><%= picture.picurl %></p>
+    </div>
+
+    <%= link_to 'Show', [@album, @picture] %>|
+    <%= link_to 'Edit', edit_album_picture_path(@album, picture) %>|
+    <%= link_to 'Destroy', [@album, picture], method: :delete, data: { confirm: 'Are you sure?' } %>
+
 <% end %>
 
 <h2>Add A Picture To This Album</h2>

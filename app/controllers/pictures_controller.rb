@@ -63,12 +63,12 @@ class PicturesController < ApplicationController
     @picture = @album.pictures.find(params[:id])    #JRD111115
 
     respond_to do |format|
-      if @picture.update_attributes(params[:picture])
+      if @album.pictures.find(params[:id]).update_attributes(picture_params)
         format.html { redirect_to album_pictures_url(@album), notice: 'Picture was successfully updated.' }
-        format.json { render :show, status: :ok, location: @picture }
+        format.json { render :show, status: :ok, location: @album.picture }
       else
         format.html { render :edit }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
+        format.json { render json: @album.picture.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -98,6 +98,6 @@ class PicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:title, :caption, :picurl)
+      params.require(:picture).permit(:title, :caption, :picurl, :id, :album_id)
     end
 end
