@@ -13,14 +13,14 @@
   </thead>
 
   <tbody>
-    <% @pictures.each do |picture| %>
+    <% @album.pictures.each do |picture| %>
       <tr>
         <td><%= picture.title %></td>
         <td><%= picture.caption %></td>
         <td><%= picture.picurl %></td>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [@album, @picture] %></td>
+        <td><%= link_to 'Edit', edit_album_picture_path(@album, picture) %></td>
+        <td><%= link_to 'Destroy', [@album, picture], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Picture', new_picture_path %>
+<%= link_to 'New Picture', new_album_picture_path %>
