@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :albums
-  resources :pictures
+  resources :albums do
+    resources :pictures
+  end
   root to: 'sessions#new'
 
   get '/login' => 'sessions#new'
