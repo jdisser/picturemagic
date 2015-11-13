@@ -10,10 +10,11 @@
   <%= @picture.caption %>
 </p>
 
-<p>
-  <strong>Picurl:</strong>
-  <%= @picture.picurl %>
-</p>
 
-<%= link_to 'Edit', edit_album_picture_path(@album, @picture) %> |
-<%= link_to 'Back', album_pictures_path %>
+
+<%= link_to 'Edit this picture', edit_album_picture_path(@album, @picture) %> |
+<%= link_to 'Show all pitures in this album', album_pictures_path %>
+
+<p>
+  <%= image_tag @picture.picurl %>
+</p>

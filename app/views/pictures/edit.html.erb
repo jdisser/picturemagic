@@ -1,6 +1,8 @@
 <h1>Editing Picture</h1>
 
+<%= image_tag @picture.picurl, options={size: "200"} %>
+
 <%= render 'form' %>
 
-<%= link_to 'Show', [@album, @picture] %> |
-<%= link_to 'Back', album_pictures_path %>
+<%= link_to 'Show This Picture', [@album, @picture] %> |
+<%= link_to 'Show All Pictures In This Album', album_pictures_path %>
