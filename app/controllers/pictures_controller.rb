@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize
 
   before_filter :get_album  #JRD111115
   # GET album/id/pictures
