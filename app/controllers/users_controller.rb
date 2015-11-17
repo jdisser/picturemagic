@@ -11,7 +11,9 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     else
-      redirect_to '/signup'
+      # redirect_to '/signup'
+      flash[:error] = 'Please check your entries, there was an error'
+      render 'new'
     end
 
   end
