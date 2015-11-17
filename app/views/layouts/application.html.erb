@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Picmagic</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <% if current_user %>
-  <% if current_user %>
-  Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
-<% else %>
-  <%= link_to 'Login', '/login' %> | <%= link_to 'Or signup for a free account', '/signup' %>
-<% end %>
-  <% else %>
-  <%= link_to 'Login', '/login' %> | <%= link_to 'Or signup for a free account', '/signup' %>
-  <% end %>
+  <head>
+    <title>Picmagic</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <% if current_user %>
+      Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+    <% else %>
+      <%= link_to 'Login', '/login' %> | <%= link_to 'Or signup for a free account', '/signup' %>
+    <% end %>
+    <%= yield %>
 
-<%= yield %>
-
-</body>
+  </body>
 </html>
